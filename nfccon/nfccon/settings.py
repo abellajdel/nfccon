@@ -119,6 +119,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     #Third party apps
+    'rest_framework',
     'south',
     #nfccon apps
     'main',
@@ -154,3 +155,19 @@ LOGGING = {
         },
     }
 }
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'PAGINATE_BY': 10,
+}
+
+try:
+    from local_settings import *
+except:
+    pass
