@@ -8,8 +8,12 @@ class OneItem(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ItemSerializer
 
     def get(self, request, *args, **kwargs):
-        #Todo (Amine): Enhance the view to return error as json if item not found 
         item_id = kwargs['id']
-        one_item = Item.objects.get(id=int(item_id))
-        serializer = ItemSerializer(one_item)
-        return Response(serializer.data)
+        try:
+            one_item = Item.objects.get(id=int(item_id))
+        except Item.DoesNotExist:
+            data_response = {'error':'Item net found'}
+        else:
+            item_serializer = ItemSerializer(one_item)
+            data_response = item_serializer.data 
+        return Response(data_response)
