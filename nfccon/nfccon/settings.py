@@ -106,6 +106,8 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    #Todo (Amine): change the following to a smart path
+    '/home/ubuntu/nfccon/nfccon/templates',
 )
 
 INSTALLED_APPS = (
@@ -119,8 +121,10 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     #Third party apps
+    'django_extensions',
     'rest_framework',
     'south',
+    'registration',
     #nfccon apps
     'main',
     'lib',
@@ -157,6 +161,7 @@ LOGGING = {
 }
 
 
+#Setting for dajango rest framework app
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
@@ -166,6 +171,17 @@ REST_FRAMEWORK = {
     ),
     'PAGINATE_BY': 10,
 }
+#End setting for dajango rest framework app
+
+
+#Setting for dajango registration app
+ACCOUNT_ACTIVATION_DAYS = 2
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+LOGIN_REDIRECT_URL = '/'
+#End setting for dajango registration app
+
 
 try:
     from local_settings import *
