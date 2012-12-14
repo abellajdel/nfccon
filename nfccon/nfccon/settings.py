@@ -90,7 +90,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     #Third party apps
     'django_extensions',
     'rest_framework',
+    'rest_framework.authtoken',
     'south',
     'registration',
     #nfccon apps
@@ -169,10 +170,17 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+            'rest_framework.authentication.TokenAuthentication',
+    ),
     'PAGINATE_BY': 10,
 }
 #End setting for dajango rest framework app
 
+
+#Setting for the token authentication api
+TOKEN_TIMEOUT_DAYS = 365
+TOKEN_CHECK_ACTIVE_USER = True
 
 #Setting for dajango registration app
 ACCOUNT_ACTIVATION_DAYS = 2

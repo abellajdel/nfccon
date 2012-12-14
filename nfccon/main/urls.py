@@ -3,7 +3,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from main.views import OneItem
 
 
-urlpatterns = patterns('devices.views',
+urlpatterns = patterns('main.views',
     url(r'^oneitem/(?P<id>\d+)/$', OneItem.as_view(), name='one item'),
 )
 
