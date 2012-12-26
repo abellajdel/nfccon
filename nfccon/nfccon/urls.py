@@ -19,4 +19,5 @@ urlpatterns = patterns('',
     (r'^$', direct_to_template, { 'template': 'index.html' }, 'index'),
     #nfccon Restful API urls
     url(r'^api/', include('main.urls')),
+    url(r'^dashboard/', include('dashboard.urls')),
 )

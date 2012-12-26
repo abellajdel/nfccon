@@ -117,6 +117,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
@@ -129,7 +130,8 @@ INSTALLED_APPS = (
     #nfccon apps
     'main',
     'lib',
-    'users'
+    'users',
+    'dashboard'
 )
 
 # A sample logging configuration. The only tangible logging
@@ -171,6 +173,7 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
+            'rest_framework.authentication.SessionAuthentication',
             'rest_framework.authentication.TokenAuthentication',
     ),
     'PAGINATE_BY': 10,
