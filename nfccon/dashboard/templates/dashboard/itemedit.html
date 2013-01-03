@@ -1,0 +1,11 @@
+
+
+{% if instance %}
+<form action="{% url dashboard.views.item_edit id=instance.id %}" method="post">
+{% else %}
+<form action="{% url dashboard.views.item_edit %}" method="post">
+{% endif %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+</form>
+

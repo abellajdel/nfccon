@@ -1,1 +1,7 @@
-Coucou
+<a href="{% url dashboard.views.item_edit id=item.id %}">Edit</a>
+<br>
+Name: {{ item.name }} <br>
+Description: {{ item.description }} <br>
+Type: {{ item.item_type  }}<br>
+Created: {{ item.created }} <br>
+Last Updated: {{ item.updated }}<br>

@@ -131,7 +131,7 @@ INSTALLED_APPS = (
     'main',
     'lib',
     'users',
-    'dashboard'
+    'dashboard',
 )
 
 # A sample logging configuration. The only tangible logging

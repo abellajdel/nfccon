@@ -14,7 +14,7 @@ class Item(models.Model):
     user = models.ForeignKey(User)
     name = models.CharField(max_length=100)
     description = models.TextField()
-    created = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField()
     updated = models.DateTimeField(auto_now=True)
     item_type = models.ForeignKey(ItemType)
 
