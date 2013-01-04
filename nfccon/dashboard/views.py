@@ -22,19 +22,13 @@ def one_item(request, id=None, template='dashboard/oneitem.html'):
 def item_edit(request, id=None, template='dashboard/itemedit.html'):
     instance = None
     if id:
-        print "If editing an existing instance"
         instance = get_object_or_404(Item, pk=id)
 
     if request.method == 'POST':
         if instance:
-            print "Yes instance id = %s" % id
-            form = ItemForm(request.POST, instance=instance)
-            print "%s -- %s -- %s" % (form['name'], form['description'], form['item_type'])
-            #if form.is_valid(): 
-            print "Yes instancei valid"
-            form.save()
-            #else:
-            #    print "haha, not valid"
+            form = ItemForm(data=request.POST, instance=instance)
+            if form.is_valid(): 
+                form.save()
         else:
             form = ItemForm(data=request.POST, user=request.user)
             if form.is_valid(): 

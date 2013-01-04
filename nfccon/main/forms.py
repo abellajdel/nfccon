@@ -14,9 +14,9 @@ class ItemForm(ModelForm):
             self.updated = datetime.now()
         super(ItemForm, self).__init__(**kwargs)
 
+
     def save(self):
         item = super(ItemForm, self).save(commit=False)
-        print "tototototot %s" % item.name
         if not item.pk:
             item.user = self.user
             item.created = self.created

@@ -20,6 +20,28 @@ DATABASES = {
     }
 }
 
+
+
+#Settings used by the django-registration app
+ACCOUNT_ACTIVATION_DAYS = 2 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587 
+EMAIL_HOST_USER = 'abellajdel@gmail.com'
+DEFAULT_FROM_EMAIL = 'abellajdel@@gmail.com'
+EMAIL_HOST_PASSWORD = 'gmail.guc.amine'
+LOGIN_REDIRECT_URL = '/' 
+
+
+#Setting for dajango registration app
+#ACCOUNT_ACTIVATION_DAYS = 2
+#EMAIL_HOST = 'localhost'
+#EMAIL_PORT = 1025
+#DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+#LOGIN_REDIRECT_URL = '/'
+#End setting for dajango registration app
+
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -184,14 +206,6 @@ REST_FRAMEWORK = {
 #Setting for the token authentication api
 TOKEN_TIMEOUT_DAYS = 365
 TOKEN_CHECK_ACTIVE_USER = True
-
-#Setting for dajango registration app
-ACCOUNT_ACTIVATION_DAYS = 2
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
-DEFAULT_FROM_EMAIL = 'webmaster@localhost'
-LOGIN_REDIRECT_URL = '/'
-#End setting for dajango registration app
 
 
 try:
